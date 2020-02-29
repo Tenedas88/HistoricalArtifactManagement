@@ -1,0 +1,108 @@
+<div style="text-align:center">
+  <h1>
+    Catalogo Reperti Archeologici
+  </h1>
+</div>
+
+<nav>
+  <a routerLink="nuovo-reperto" rel="noopener">
+    <button class="btn btn-success"> + Nuovo Reperto</button>
+  </a>
+</nav>
+
+<form>
+<input #search autocomplete="on" placeholder="cerca" type="search">
+<select #field>
+  <option value="id_inventario">ID inventario</option>
+  <option value="altri_inventari">altri inventari</option>
+  <option value="produzione">produzione</option>
+  <option value="tecnica">tecnica</option>
+  <option value="forma">forma</option>
+  <option value="stato_conservazione">stato conservazione</option>
+  <option value="luogo_conservazione">luogo conservazione</option>
+  <option value="provenienza">provenienza</option>
+  <option value="collezione">collezione</option>
+  <option value="limc_digitale">limc digitale</option>
+  <option value="misure">misure</option>
+  <option value="descrizione_lato_a">descrizione lato a</option>
+  <option value="descrizione_lato_b">descrizione lato b</option>
+</select>
+<button ng-disabled="field.value==''" (click)="searchReperti(search.value, field.value);">Cerca</button>
+</form>
+
+<h2> Reperti Registrati </h2>
+<ul class="REPERTI">
+  <li *ngFor="let reperto of REPERTI" #repertotag>
+    <div>
+      <label>ID:</label>
+      <p>{{reperto.ID}}</p>
+    </div>
+    <div>
+      <label>Altri Inventari:</label>
+      <p>{{reperto.AltriInventari}}</p>
+    </div>
+    <div>
+      <label>Produzione:</label>
+      <p>{{reperto.Produzione}}</p>
+    </div>
+    <div>
+      <label>Tecnica:</label>
+      <p>{{reperto.Tecnica}}</p>
+    </div>
+    <div>
+      <label>Forma:</label>
+      <p>{{reperto.Forma}}</p>
+    </div>
+    <div>
+      <label>Stato Conservazione:</label>
+      <p>{{reperto.StatoConservazione}}</p>
+    </div>
+    <div>
+      <label>Luogo Conservazione:</label>
+      <p>{{reperto.LuogoConservazione}}</p>
+    </div>
+    <div>
+      <label>Provenienza:</label>
+      <p>{{reperto.Provenienza}}</p>
+    </div>
+    <div>
+      <label>Collezione:</label>
+      <p>{{reperto.Collezione}}</p>
+    </div>
+    <div>
+      <label>Limc:</label>
+      <p>{{reperto.LimcDigitale}}</p>
+    </div>
+    <div>
+      <label>Misure:</label>
+      <p>{{reperto.Misure}}</p>
+    </div>
+    <div>
+      <label>Descrizione lato A:</label>
+      <p>{{reperto.DescrizioneA}}</p>
+    </div>
+    <div>
+      <label>Descrizione lato B:</label>
+      <p>{{reperto.DescrizioneB}}</p>
+    </div>
+    <div>
+      <label>Reperto Padre:</label>
+      <p>{{reperto.RepertoPadre}}</p>
+    </div>
+    <button class="btn" (click)="MostraImmagine(reperto)"> Mostra Immagine </button>
+    <div *ngIf="reperto.PathShow == true">
+        <ul>
+        <li *ngFor="let foto of reperto.ArrayFoto">
+          <img [src]=foto.Path>
+        </li>
+        </ul>
+    </div>
+    <div>
+      <div>
+        <input type="file" (change)="createFormData($event)">
+      </div>
+      <button (click)="upload(reperto.ID)">Upload</button>
+    </div>
+    <button (click)="rimuoviReperti(reperto.ID)"> - Rimuovi Reperto</button>
+  </li>
+</ul>
