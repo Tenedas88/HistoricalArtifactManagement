@@ -4,9 +4,6 @@ import { Router } from '@angular/router';
 import { DBCRUDService} from '../dbcrud.service';
 
 import {HttpReperto, Reperto, RepertoRelease, HttpRepertoRelease, FotoReperto, HttpFotoReperto, RepertoWrapper} from '../RepertiDataModel';
-import {forEach} from '@angular/router/src/utils/collection';
-import {NULL_EXPR} from '@angular/compiler/src/output/output_ast';
-import {promise} from 'selenium-webdriver';
 
 
 @Component({

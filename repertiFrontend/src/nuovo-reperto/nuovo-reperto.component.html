@@ -1,0 +1,110 @@
+<div class="container">
+  <div [hidden]="submitted">
+    <h1>Nuovo Reperto</h1>
+    <form (ngSubmit)="onSubmit()" #repertoForm="ngForm">
+
+      <div class="form-group">
+        <label for="ID">ID</label>
+        <input type="number" class="form-control" id="ID"
+               required
+               [(ngModel)]="newReperto.ID" name="ID"
+               #name="ngModel">
+        <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Inserire ID
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="AltriInventari">AltriInventari</label>
+        <input type="number" class="form-control" id="AltriInventari"
+               required
+               [(ngModel)]="newReperto.AltriInventari" name="AltriInventari"
+               #name="ngModel">
+        <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Inserire Nome
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="Produzione">Produzione</label>
+        <input type="text" class="form-control" id="Produzione"
+               [(ngModel)]="newReperto.Produzione" name="Produzione">
+      </div>
+
+      <div class="form-group">
+        <label for="Tecnica">Tecnica</label>
+        <input type="text" class="form-control" id="Tecnica"
+               [(ngModel)]="newReperto.Tecnica" name="Tecnica">
+      </div>
+
+      <div class="form-group">
+        <label for="Forma">Produzione</label>
+        <input type="text" class="form-control" id="Forma"
+               [(ngModel)]="newReperto.Forma" name="Forma">
+      </div>
+
+      <div class="form-group">
+        <label for="StatoConservazione">StatoConservazione</label>
+        <input type="text" class="form-control" id="StatoConservazione"
+               [(ngModel)]="newReperto.StatoConservazione" name="StatoConservazione">
+      </div>
+
+      <div class="form-group">
+        <label for="LuogoConservazione">StatoConservazione</label>
+        <input type="text" class="form-control" id="LuogoConservazione"
+               [(ngModel)]="newReperto.LuogoConservazione" name="LuogoConservazione">
+      </div>
+
+      <div class="form-group">
+        <label for="Provenienza">Provenienza</label>
+        <input type="text" class="form-control" id="Provenienza"
+               [(ngModel)]="newReperto.Provenienza" name="Provenienza">
+      </div>
+
+      <div class="form-group">
+        <label for="Collezione">Collezione</label>
+        <input type="text" class="form-control" id="Collezione"
+               [(ngModel)]="newReperto.Collezione" name="Collezione">
+      </div>
+
+      <div class="form-group">
+        <label for="LimcDigitale">LimcDigitale</label>
+        <input type="text" class="form-control" id="LimcDigitale"
+               [(ngModel)]="newReperto.LimcDigitale" name="LimcDigitale">
+      </div>
+
+      <div class="form-group">
+        <label for="Misure">Misure</label>
+        <input type="number" class="form-control" id="Misure"
+               [(ngModel)]="newReperto.Misure" name="Misure">
+      </div>
+
+      <div class="form-group">
+        <label for="DescrizioneA">DescrizioneA</label>
+        <input type="text" class="form-control" id="DescrizioneA"
+               [(ngModel)]="newReperto.DescrizioneA" name="DescrizioneA">
+      </div>
+
+      <div class="form-group">
+        <label for="DescrizioneB">DescrizioneB</label>
+        <input type="text" class="form-control" id="DescrizioneB"
+               [(ngModel)]="newReperto.DescrizioneB" name="DescrizioneB">
+      </div>
+
+      <div class="form-group">
+        <label for="Padre">Padre</label>
+        <input type="checkbox" class="form-control" id="Padre"
+               [(ngModel)]="newReperto.Padre" name="Padre" >
+      </div>
+
+      <div class="form-group" *ngIf="newReperto.Padre == true">
+        <label for="RepertoPadre">: ID reperto padre</label>
+        <input type="number" class="form-control" id="RepertoPadre"
+               [(ngModel)]="newReperto.RepertoPadre" name="RepertoPadre">
+      </div>
+    </form>
+    <button type="button" class="btn btn-default" (click)="newRepertoInsert();repertoForm.reset()">+ Inserisci</button>
+  </div>
+</div>

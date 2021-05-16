@@ -29,7 +29,7 @@ export class NuovoRepertoComponent implements OnInit {
   false
   );
 
-  private submitted: boolean = false;
+  submitted: boolean = false;
 
   constructor(private router: Router, private db: DBCRUDService) {
     this.newReperto.PathShow = false;
