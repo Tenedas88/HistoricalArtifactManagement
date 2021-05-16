@@ -212,6 +212,10 @@ router.post('/', function(req, res, next) {
                 .then(() => {
                     res.end();
                 })
+                .catch(err => {
+                    console.error(err.stack);
+                    process.exit(1);
+                });
         })
         .catch(err => {
             console.error(err.stack);
